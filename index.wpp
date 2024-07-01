@@ -1,0 +1,36 @@
+#head({
+    bg_color: "red",
+})
+
+!change_count(direction) {
+    if (counter == null) {
+        core::print("counter to zero");
+        counter = 0;
+    };
+    if (direction == true) {
+        counter++;
+        core::style("counter_button", {
+            bg_color: "red",
+        });
+    } else {
+        counter--;
+    };
+}
+
+.head {
+    h(core::format("Hello, eco! ", "how are you?"))
+    /* h("Hello, eco!") */
+}
+
+p("How are you?\n\n
+I've been doing well.")
+
+a("Here's my link", "#")
+
+p.counter_display(counter)
+b.counter_button("Increment", !() {
+    change_count(true);
+})
+b.counter_button("Decrement", !() {
+    change_count(false);
+})
